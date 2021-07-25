@@ -1,10 +1,15 @@
 package org.example.student_hostel.repo;
 
 import org.example.student_hostel.domain.User;
+import org.example.student_hostel.domain.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.List;
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
-    UserDetails findByUsername(String username);
+    User findByUsername(String username);
+
+    List<User> findByUserRole(UserRole userRole);
+
 }

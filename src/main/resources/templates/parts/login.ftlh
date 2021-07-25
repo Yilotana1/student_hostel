@@ -9,7 +9,7 @@
             <input name="password" type="password" class="form-control" id="password" placeholder="Пароль">
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
         </div>
-        <input type="submit" class="btn btn-success my-3" value="Логін"/>
+        <input type="submit" class="btn btn-primary my-3" value="Логін"/>
     </form>
 
 </div>

@@ -1,7 +1,6 @@
 package org.example.student_hostel.domain;
 
 
-
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -9,6 +8,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user_role")
 public class UserRole implements GrantedAuthority {
+
+    public static final long ADMIN = 1;
+    public static final long STUDENT = 2;
 
 
     @Id
@@ -41,4 +43,20 @@ public class UserRole implements GrantedAuthority {
     public String getAuthority() {
         return name;
     }
+
+
+    public static UserRole getAdminRole(){
+        UserRole userRole = new UserRole();
+        userRole.setId(ADMIN);
+        userRole.setName("ADMIN");
+        return userRole;
+    }
+
+    public static UserRole getStudentRole(){
+        UserRole userRole = new UserRole();
+        userRole.setId(STUDENT);
+        userRole.setName("STUDENT");
+        return userRole;
+    }
+
 }
