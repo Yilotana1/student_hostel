@@ -2,11 +2,13 @@ package org.example.student_hostel.domain;
 
 
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_role")
-public class UserRole {
+public class UserRole implements GrantedAuthority {
 
 
     @Id
@@ -35,4 +37,8 @@ public class UserRole {
         return id;
     }
 
+    @Override
+    public String getAuthority() {
+        return name;
+    }
 }
