@@ -16,9 +16,11 @@
 
     </head>
 
-    <body class="text-white">
+    <body>
     <#include "navbar.ftlh"/>
-    <#nested>
+    <div class="container my-3" style="color: #16cb68">
+        <#nested>
+    </div>
     </body>
 
     </html>

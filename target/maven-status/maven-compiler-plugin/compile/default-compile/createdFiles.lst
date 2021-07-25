@@ -1,5 +1,0 @@
-org\example\student_hostel\controller\MainController.class
-org\example\student_hostel\Application.class
-org\example\student_hostel\domain\User.class
-org\example\student_hostel\domain\UserRole.class
-org\example\student_hostel\repo\UserRepo.class
