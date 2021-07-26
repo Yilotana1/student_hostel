@@ -11,8 +11,14 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+                <#if user??>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Профіль</a>
+                    </li>
+                </#if>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile">Оголошення</a>
+                    <a class="nav-link" href="/">Оголошення</a>
                 </li>
 
                 <li class="nav-item">
@@ -21,11 +27,6 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Список жильців</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Контакти</a>
                 </li>
 
             </ul>
