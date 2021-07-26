@@ -37,6 +37,8 @@ public class User implements UserDetails {
     @NotBlank(message = "lastname cannot be empty")
     private String lastname;
 
+    private String photoName;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
@@ -133,6 +135,14 @@ public class User implements UserDetails {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getPhotoName() {
+        return photoName;
+    }
+
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
     }
 
     @Override

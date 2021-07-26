@@ -32,6 +32,7 @@
             </ul>
 
             <#if !user??>
+                <a class="btn btn-primary text-white mx-3" href="/registration">Реєстрація</a>
                 <a class="btn btn-primary text-white" href="/login">Вхід</a>
             <#else>
                 <form action="/logout" method="post">
