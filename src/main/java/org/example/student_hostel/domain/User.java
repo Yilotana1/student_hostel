@@ -1,12 +1,14 @@
 package org.example.student_hostel.domain;
 
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -18,23 +20,25 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank(message = "username cannot be empty")
+    @Length(min = 5, max = 15, message = "Логін повинен бути довжиною від 5 до 15 символів")
     private String username;
 
-    @NotBlank(message = "phone cannot be empty")
+    @NotBlank(message = "Мобільний номер не повинен бути пустим")
     private String phone;
 
     @Email
-    @NotBlank(message = "email cannot be empty")
+    @NotBlank(message = "Поштовий адрес не повинен бути пустим")
     private String email;
 
-    @NotBlank(message = "password cannot be empty")
+    @Length(min = 8, message = "Пароль повинен бути довжиною не менше 8 символів")
     private String password;
 
-    @NotBlank(message = "firstname cannot be empty")
+    @Pattern(regexp = "[A-Za-z\\p{IsCyrillic}]+",
+            message = "Ім'я повинно містити тільки латинницю або кирилицю")
     private String firstname;
 
-    @NotBlank(message = "lastname cannot be empty")
+    @Pattern(regexp = "[A-Za-z\\p{IsCyrillic}]+",
+            message = "Прізвище повинно містити тільки латинницю або кирилицю")
     private String lastname;
 
     private String photoName;
@@ -43,8 +47,6 @@ public class User implements UserDetails {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private UserRole userRole;
-
-
 
 
     public UserRole getRole() {
