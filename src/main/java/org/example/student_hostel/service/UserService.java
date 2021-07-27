@@ -33,11 +33,16 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public void createUser(User user){
+    public void createUser(User user) {
         userRepo.save(user);
     }
 
-    public List<User> loadAdmins(){
+    public List<User> loadAdmins() {
         return userRepo.findByUserRole(UserRole.getAdminRole());
     }
+
+    public void updateUser(User user) {
+        userRepo.save(user);
+    }
+
 }

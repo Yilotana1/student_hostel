@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <#if user??>
+                <#if authUser??>
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Профіль</a>
                     </li>
@@ -31,7 +31,7 @@
 
             </ul>
 
-            <#if !user??>
+            <#if !authUser??>
                 <a class="btn btn-primary text-white mx-3" href="/registration">Реєстрація</a>
                 <a class="btn btn-primary text-white" href="/login">Вхід</a>
             <#else>

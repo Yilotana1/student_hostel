@@ -19,13 +19,13 @@
             <br/>
             <br/>
             <br/>
-            <h4>Адміністрація:</h4>
+            <h4 class="mb-4">Адміністрація:</h4>
             <#list admins as admin>
 
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="/images/photo.jpg" class="img-fluid rounded-start w-100" alt="..."/>
+                        <img src="/images/${admin.photoName}" class="img-fluid rounded-start w-100 h-100" alt="..."/>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -37,6 +37,7 @@
                 </div>
             </div>
             </#list>
+
         </div>
 
     </div>

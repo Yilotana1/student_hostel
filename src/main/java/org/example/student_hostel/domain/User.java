@@ -34,14 +34,18 @@ public class User implements UserDetails {
     private String password;
 
     @Pattern(regexp = "[A-Za-z\\p{IsCyrillic}]+",
-            message = "Ім'я повинно містити тільки латинницю або кирилицю")
+            message = "Ім'я повинно містити тільки латинницю або кирилицю та не бути пустим")
     private String firstname;
 
     @Pattern(regexp = "[A-Za-z\\p{IsCyrillic}]+",
-            message = "Прізвище повинно містити тільки латинницю або кирилицю")
+            message = "Прізвище повинно містити тільки латинницю або кирилицю та не бути пустим")
     private String lastname;
 
     private String photoName;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "apartment_id")
+    private Apartment apartment;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -145,6 +149,14 @@ public class User implements UserDetails {
 
     public void setPhotoName(String photoName) {
         this.photoName = photoName;
+    }
+
+    public Apartment getApartment() {
+        return apartment;
+    }
+
+    public void setApartment(Apartment apartment) {
+        this.apartment = apartment;
     }
 
     @Override

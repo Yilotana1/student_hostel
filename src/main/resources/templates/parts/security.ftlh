@@ -2,6 +2,6 @@
 
 <#if springContextExists>
     <#assign
-        user = Session.SPRING_SECURITY_CONTEXT.authentication.principal
+        authUser = Session.SPRING_SECURITY_CONTEXT.authentication.principal
     >
 </#if>
