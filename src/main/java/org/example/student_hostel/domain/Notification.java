@@ -2,6 +2,7 @@ package org.example.student_hostel.domain;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "notification")
@@ -11,8 +12,10 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message="Заголовок має бути заповнений")
     private String title;
 
+    @NotBlank(message="Текст оголошення має бути заповнений")
     private String text;
 
     @ManyToOne

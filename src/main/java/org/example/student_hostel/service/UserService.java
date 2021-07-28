@@ -45,4 +45,8 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
     }
 
+    public List<User> loadStudents() {
+        return userRepo.findByUserRole(UserRole.getStudentRole());
+    }
+
 }

@@ -15,11 +15,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Профіль</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/notifications">Оголошення</a>
+                    </li>
                 </#if>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Оголошення</a>
-                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Список поверхів</a>
