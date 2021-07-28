@@ -1,0 +1,5 @@
+
+<#macro deleteNotification notificationId>
+
+</#macro>
+

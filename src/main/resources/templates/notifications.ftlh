@@ -1,5 +1,6 @@
 <#import "parts/common.ftlh" as c/>
 <#include "parts/security.ftlh"/>
+
 <@c.basic>
 
     <#if authUser.role == 'ADMIN'>
@@ -13,8 +14,14 @@
                 <div class="card-body">
                     <h5 class="card-title">${notification.author.firstname} ${notification.author.lastname}</h5>
                     <p class="card-text">${notification.text}</p>
+
+                    <#if authUser.role == 'ADMIN'>
+                        <a href="/notifications/delete/${notification.id}" class="btn btn-danger">Видалити</a>
+                    </#if>
+
                 </div>
             </div>
         </#list>
     </div>
 </@c.basic>
+

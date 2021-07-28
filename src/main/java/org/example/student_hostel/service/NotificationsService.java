@@ -28,4 +28,7 @@ public class NotificationsService {
     }
 
 
+    public void delete(Notification notification) {
+        notificationRepo.delete(notification);
+    }
 }

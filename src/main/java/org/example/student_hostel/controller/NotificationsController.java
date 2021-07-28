@@ -2,6 +2,7 @@ package org.example.student_hostel.controller;
 
 
 import org.example.student_hostel.domain.Notification;
+import org.example.student_hostel.domain.User;
 import org.example.student_hostel.service.MailSenderService;
 import org.example.student_hostel.service.NotificationsService;
 import org.example.student_hostel.service.UserService;
@@ -11,14 +12,9 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.example.student_hostel.domain.User;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Map;
 
 //TODO Создать функцию создания и редактирования нотификаций, и удаления
@@ -76,19 +72,23 @@ public class NotificationsController {
             return "notification_form";
         }
 
-
         notification.setAuthor(user);
-
         if (sendEmail != null) {
 
             mailSenderService.sendNotificationToStudents(notification);
         }
 
         notificationsService.createNotification(notification);
-
         return "redirect:/notifications";
     }
 
 
-
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/delete/{id}")
+    public String deleteNotification(
+            @PathVariable("id") Notification notification
+    ) {
+        notificationsService.delete(notification);
+        return "redirect:/notifications";
+    }
 }

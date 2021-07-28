@@ -5,7 +5,7 @@
     <form action="/notifications/create" class="w-50" method="post">
 
         <div class="mb-3">
-            <label for="title" class="form-label">Ім'я</label>
+            <label for="title" class="form-label">Заголовок</label>
             <input type="text" name="title" class="form-control ${(titleError??)?string('is-invalid', '')}"
                    id="title" placeholder="Заголовок"/>
 
@@ -22,7 +22,7 @@
                 <textarea name="text" class="form-control ${(textError??)?string('is-invalid', '')}"
                           placeholder="Напишіть ваше повідомлення" id="floatingTextarea2"
                           style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Comments</label>
+                <label for="floatingTextarea2">Вміст оголошення</label>
             </div>
             
             <#if textError??>
