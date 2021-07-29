@@ -1,11 +1,7 @@
 <#import "parts/common.ftlh" as c/>
 
 
-<style>
-    * {
-        color: #16cb68
-    }
-</style>
+
 
 <@c.basic>
 

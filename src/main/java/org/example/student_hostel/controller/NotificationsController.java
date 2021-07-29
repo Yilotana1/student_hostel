@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Map;
 
-//TODO Создать функцию создания и редактирования нотификаций, и удаления
-//TODO Создать рассылку по почте
-
 
 @Controller
 @RequestMapping("/notifications")

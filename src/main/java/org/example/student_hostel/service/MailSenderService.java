@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
 @Service
 public class MailSenderService {
 
+    private final String MESSAGE_AUTHOR = "Адміністрація гуртожитку №1 за адресою вул. Вигадана 23, м. Київ";
+
 
     @Value("${spring.mail.username}")
     private String username;
@@ -54,7 +56,6 @@ public class MailSenderService {
                 .collect(Collectors.toList());
 
 
-
         for (String email : emails) {
 
             new Thread(new Runnable() {
@@ -71,7 +72,16 @@ public class MailSenderService {
 
     public void sendNotificationToStudents(Notification notification) {
         List<User> users = userService.loadStudents();
-
-        send(users, notification.getTitle(), notification.getText());
+        send(users, notification.getTitle(), getFormatText(notification.getText()));
     }
+
+
+
+
+    private String getFormatText(String text) {
+        String format = "%s%n%n%s%n%n%n%s";
+        return String.format(format, text, MESSAGE_AUTHOR);
+    }
+
+
 }
