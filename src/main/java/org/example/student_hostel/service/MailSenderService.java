@@ -49,7 +49,7 @@ public class MailSenderService {
         mailSender.send(mailMessage);
     }
 
-    public void send(List<User> emailTo, String subject, String message) {
+    public void mass_send(List<User> emailTo, String subject, String message) {
         List<String> emails = emailTo
                 .stream()
                 .map(User::getEmail)
@@ -70,17 +70,18 @@ public class MailSenderService {
         }
     }
 
-    public void sendNotificationToStudents(Notification notification) {
+    public void sendNotificationToAllStudents(Notification notification) {
         List<User> users = userService.loadStudents();
-        send(users, notification.getTitle(), getFormatText(notification.getText()));
+        mass_send(users, notification.getTitle(), getFormatContent(notification.getText(), MESSAGE_AUTHOR));
     }
 
 
 
 
-    private String getFormatText(String text) {
-        String format = "%s%n%n%s%n%n%n%s";
-        return String.format(format, text, MESSAGE_AUTHOR);
+    private String getFormatContent(String text, String author) {
+        String format = "%s%n%n%n%n%n%s";
+        System.out.println(text);
+        return String.format(format, text, author);
     }
 
 

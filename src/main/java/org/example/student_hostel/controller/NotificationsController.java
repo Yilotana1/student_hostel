@@ -72,7 +72,7 @@ public class NotificationsController {
         notification.setAuthor(user);
         if (sendEmail != null) {
 
-            mailSenderService.sendNotificationToStudents(notification);
+            mailSenderService.sendNotificationToAllStudents(notification);
         }
 
         notificationsService.createNotification(notification);
