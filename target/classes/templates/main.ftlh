@@ -11,7 +11,7 @@
             <h3>Ви завітали на сторінку гуртожитку №1</h3>
             <span>Розпорядок роботи: 8-00 - 20-00</span>
             <br/>
-            <span>Адреса: вул. Вигадана 23, м. Київ</span>
+            <span>Адреса: вул. Борщагівська 23, м. Київ</span>
             <br/>
             <br/>
             <br/>
@@ -21,7 +21,7 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="/images/${admin.photoName}" class="img-fluid rounded-start w-100 h-100" alt="..."/>
+                        <img src="/images/${admin.photoName}" class="img-fluid rounded-start w-100" style="height: 10rem" alt="..."/>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

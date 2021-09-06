@@ -24,7 +24,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Список поверхів</a>
+                    <a class="nav-link" href="/apartments">Список комнат</a>
                 </li>
 
                 <li class="nav-item">

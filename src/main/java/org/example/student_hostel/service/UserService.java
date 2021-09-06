@@ -9,12 +9,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class UserService implements UserDetailsService {
 
     private UserRepo userRepo;
+
+    public static final List<Integer> ALL_STUDENTS = Arrays.asList(0, 1, 2, 3, 4);
+    public static final Integer MAX_STUDENTS_IN_APARTMENT = 4;
 
     @Autowired
     public void setUserRepo(UserRepo userRepo) {
@@ -46,6 +50,10 @@ public class UserService implements UserDetailsService {
 
     public List<User> loadStudents() {
         return userRepo.findByUserRole(UserRole.getStudentRole());
+    }
+
+    public Long getCount(){
+        return userRepo.count();
     }
 
 }
